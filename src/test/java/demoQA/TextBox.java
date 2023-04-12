@@ -12,15 +12,11 @@ import org.testng.annotations.Test;
 
 public class TextBox {
     WebDriver driver;
-    ChromeOptions options;
 
     @BeforeMethod
     public void setup() {
         System.out.println("Start set up driver");
 
-//        options = new ChromeOptions();
-//        options.addArguments("--remote-allow-origins=*");
-//
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
