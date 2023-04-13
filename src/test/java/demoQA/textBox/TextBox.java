@@ -1,28 +1,12 @@
-package demoQA;
+package demoQA.textBox;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import demoQA.AbstractTestInit;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TextBox {
-    WebDriver driver;
-
-    @BeforeMethod
-    public void setup() {
-        System.out.println("Start set up driver");
-
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-        System.out.println("Finish set up driver");
-    }
+public class TextBox extends AbstractTestInit {
 
     @Test
     public void checkTextBox() {
@@ -30,7 +14,6 @@ public class TextBox {
 
         String textCurrentAddress = "801 PUCKER ST " + "WARRENSBURG NY 12885-5138 " + "USA";
         String textPermanentAddress = "601 CHAZY LAKE RD " + "SARANAC NY 12981-2907 " + "USA";
-
 
         driver.findElement(By.xpath("//span[text()='Text Box']")).click();
         driver.findElement(By.xpath("//input[@placeholder='Full Name']"))
@@ -57,7 +40,6 @@ public class TextBox {
         WebElement permanentAddressGet = driver.findElement(By
                 .xpath("//div[@class='border col-md-12 col-sm-12']//p[@id='permanentAddress']"));
         String stringPermanentAddress = permanentAddressGet.getText();
-
 
         Assert.assertTrue(stringName.contains("Tetiana Stanko"));
         Assert.assertTrue(stringEmail.contains("wether123@vb.mk"));
