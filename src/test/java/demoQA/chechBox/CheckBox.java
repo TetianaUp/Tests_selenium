@@ -26,9 +26,6 @@ public class CheckBox extends AbstractTestInit {
         driver.findElement(By.xpath("//label[@for='tree-node-home']")).click();
 
         WebElement result = driver.findElement(By.xpath("//div[@id='result']"));
-//        List<WebElement> list = new ArrayList<>();
-//        List<WebElement> selectedCheckBoxesList = driver.findElements(By.xpath("//div[@id='result']/span[@class='text-success']"));
-//        selectedCheckBoxesList.stream().anyMatch(list.);
 
         Assert.assertEquals(result.getText(), "You have selected :\n" +
                 "home\n" +
