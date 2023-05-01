@@ -1,38 +1,42 @@
-package newBalance.tests;
+package tests;
 
-import newBalance.TestInit;
-import newBalance.pages.HomePage;
-import newBalance.pages.ManFootballPage;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.ManFootballPage;
 
-import static newBalance.pages.HomePage.HOME_URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import static pages.HomePage.HOME_URL;
+import static pages.ManFootballPage.PRODUCT_PRICE;
 
 public class PriceHighToLowMenFootballTest extends TestInit {
-//    public String title = "Football Boots";
+    private String title = "Football Boots";
 
     @Test
     public void checkSortingByPriceHighToLow() {
         openUrl(HOME_URL);
         HomePage homePage = new HomePage(driver);
+        ManFootballPage manFootballPage = new ManFootballPage(driver);
 
         homePage
                 .acceptAllCookies()
-                .acceptPopUp();
+                .acceptPopUp()
+                .moveToManCategory();
 
-        ManFootballPage manFootballPage = new ManFootballPage(driver);
+        assertTrue(manFootballPage.getTitleCategory().contains(title));
+
         manFootballPage
-                .moveToMenFootballCategory();
+                .sortByPriceHighToLow();
 
-//        assertTrue(TITLE_CATEGORY.contains(title));
+        sleep(500);
+        List<Double> prices = manFootballPage.getProductPrices(PRODUCT_PRICE);
+        List<Double> sortedPrices = new ArrayList<>(prices);
+        sortedPrices.sort(Collections.reverseOrder());
 
-//        ManFootballPage menFootballPage = new ManFootballPage(driver);
-//        menFootballPage
-//                .sortByPriceHighToLow();
-//
-//        List<Double> prices = menFootballPage.getProductPrices(PRODUCT_PRICE);
-//        List<Double> sortedPrices = new ArrayList<>(prices);
-//        sortedPrices.sort(Collections.reverseOrder());
-//
-//        assertEquals(prices, sortedPrices, "Products are not sorted by price from high to low");
+        assertEquals(prices, sortedPrices, "Products are not sorted by price from high to low");
     }
 }

@@ -1,13 +1,14 @@
-package newBalance.pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage extends BasePage {
+import static utils.ActionUtils.scrollForElement;
+
+public class HomePage extends Header {
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -31,9 +32,9 @@ public class HomePage extends BasePage {
     }
 
     public HomePage find550CategoryInNewArrivals() {
-        scrollToElement(driver, waitPresenceOfElement(NEW_ARRIVAL_PART));
+        scrollForElement(driver, waitPresenceOfElement(NEW_ARRIVAL_PART));
         getProductCategoryName();
-        return new HomePage(driver);
+        return this;
     }
 
     public void getProductCategoryName() {
