@@ -7,29 +7,20 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ManFootballPage extends Header {
+public class MenFootballPage extends Header {
 
-    public ManFootballPage(WebDriver driver) {
+    public MenFootballPage(WebDriver driver) {
         super(driver);
     }
 
     public final static String PRODUCT_PRICE = "//span[@class='sales font-body-large ']";
-
-//    public ManFootballPage moveToMenFootballCategory() {
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(getManCategory())
-//                .moveToElement(getManFootballCategory())
-//                .click();
-//
-//        return this;
-//    }
 
     public String getTitleCategory() {
         return waitVisibilityOfElement("//h1[contains(@class, 'js-griddisplay-name page-category')]")
                 .getText();
     }
 
-    public ManFootballPage sortByPriceHighToLow() {
+    public MenFootballPage sortByPriceHighToLow() {
         Select selectByHighLowPrice = new Select(getSortDropdownMenu());
         selectByHighLowPrice.selectByVisibleText("\n" +
                 "                    Price (High-Low)\n" +

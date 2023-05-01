@@ -16,7 +16,7 @@ public class HomePage extends Header {
 
     public final static String HOME_URL = "https://www.newbalance.co.uk/";
     public final static String NEW_ARRIVAL_PART = "//div[@class='ml-lg-11 ml-3']";
-    public final static String CATEGORY_550 = "//div[@class='flex flex-column'][descendant::span[text()='550']]";
+//    public final static String CATEGORY_550 = "//div[@class='flex flex-column'][descendant::span[text()='550']]";
     public final static String NEXT_ARROW = "//div[@class='ml-lg-11 ml-3']//button[@class='slide-arrow next-arrow slick-arrow']";
 
     public HomePage acceptAllCookies() {
@@ -52,12 +52,4 @@ public class HomePage extends Header {
             }
         }
     }
-//    public HomePage moveToMenFootballCategory(){
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(waitPresenceOfElement(MEN_CATEGORY))
-//                .moveToElement(waitPresenceOfElement(MEN_FOOTBALL_CATEGORY))
-//                .click();
-//
-//        return this;
-//    }
 }

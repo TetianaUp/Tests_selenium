@@ -18,11 +18,23 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//a[@id='110000']");
     }
 
-    public ManFootballPage moveToManCategory() {
+    public WebElement getMenTrainersCategory(){
+        return waitVisibilityOfElement("//a[@id='106000']");
+    }
+
+    public MenFootballPage moveToManCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getManFootballCategory());
         getManFootballCategory().click();
 
-        return new ManFootballPage(driver);
+        return new MenFootballPage(driver);
+    }
+
+    public MenTrainersPage moveToMenTrainersCategory(){
+        moveToElement(driver, getManCategory());
+        moveToElement(driver, getMenTrainersCategory());
+        getMenTrainersCategory().click();
+
+        return new MenTrainersPage(driver);
     }
 }

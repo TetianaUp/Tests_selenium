@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.ManFootballPage;
+import pages.MenFootballPage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
-import static pages.ManFootballPage.PRODUCT_PRICE;
+import static pages.MenFootballPage.PRODUCT_PRICE;
 
 public class PriceHighToLowMenFootballTest extends TestInit {
     private String title = "Football Boots";
@@ -20,7 +20,7 @@ public class PriceHighToLowMenFootballTest extends TestInit {
     public void checkSortingByPriceHighToLow() {
         openUrl(HOME_URL);
         HomePage homePage = new HomePage(driver);
-        ManFootballPage manFootballPage = new ManFootballPage(driver);
+        MenFootballPage manFootballPage = new MenFootballPage(driver);
 
         homePage
                 .acceptAllCookies()
