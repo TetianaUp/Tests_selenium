@@ -1,4 +1,4 @@
-package newBalance.pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 
