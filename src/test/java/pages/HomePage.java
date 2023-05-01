@@ -2,6 +2,7 @@ package newBalance.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,4 +51,12 @@ public class HomePage extends BasePage {
             }
         }
     }
+//    public HomePage moveToMenFootballCategory(){
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(waitPresenceOfElement(MEN_CATEGORY))
+//                .moveToElement(waitPresenceOfElement(MEN_FOOTBALL_CATEGORY))
+//                .click();
+//
+//        return this;
+//    }
 }

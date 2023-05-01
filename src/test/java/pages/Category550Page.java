@@ -3,6 +3,7 @@ package newBalance.pages;
 import org.openqa.selenium.WebDriver;
 
 public class Category550Page extends BasePage {
+
     public Category550Page(WebDriver driver) {
         super(driver);
     }
@@ -12,4 +13,5 @@ public class Category550Page extends BasePage {
     public String getNameCategory() {
         return waitVisibilityOfElement(PRODUCT_NAME).getText();
     }
+
 }

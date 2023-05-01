@@ -1,11 +1,10 @@
-package newBalance.tests;
+package tests;
 
-import newBalance.TestInit;
-import newBalance.pages.Category550Page;
-import newBalance.pages.HomePage;
+import pages.Category550Page;
+import pages.HomePage;
 import org.testng.annotations.Test;
 
-import static newBalance.pages.HomePage.HOME_URL;
+import static pages.HomePage.HOME_URL;
 
 public class CrossingFromManePageToAnotherCategoryPageTest extends TestInit {
     @Test

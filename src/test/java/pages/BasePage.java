@@ -1,26 +1,28 @@
-package newBalance.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BasePage {
     protected WebDriver driver;
-    protected static WebDriverWait wait;
-    final static int BASE_WAIT = 300;
+    protected WebDriverWait wait;
+    final static int BASE_WAIT = 3;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(BASE_WAIT));
     }
 
-    protected static WebElement waitClickableElement(String locator) {
+    protected WebElement waitClickableElement(String locator) {
         return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
     }
 
@@ -36,8 +38,8 @@ public abstract class BasePage {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
-    public static void scrollToElement(WebDriver driver, WebElement element) {
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
+
+    public WebElement getSortDropdownMenu() {
+        return driver.findElement(By.name("sort-order"));
     }
 }
