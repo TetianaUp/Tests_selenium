@@ -13,14 +13,10 @@ public class MenTrainersPage extends Header {
 
     public final String PRICE_FILTER = "//button[@aria-controls='refinement-price']";
 
-    public String getTitleCategory() {
-        return waitVisibilityOfElement("//h1[contains(@class, 'js-griddisplay-name page-category')]")
-                .getText();
-    }
 
     public MenTrainersPage filteringByPrice(String parametrForFilterring) {
         waitClickableElement(PRICE_FILTER).click();
-        waitClickableElement(parametrForFilterring).click();
+        waitPresenceOfElement(parametrForFilterring).click();
 
         return this;
     }
