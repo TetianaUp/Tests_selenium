@@ -18,12 +18,16 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//a[@id='110000']");
     }
 
-    public WebElement getMenTrainersCategory(){
+    public WebElement getMenTrainersCategory() {
         return waitVisibilityOfElement("//a[@id='106000']");
     }
 
-    public WebElement getMenTrousersAndTightsCategory(){
+    public WebElement getMenTrousersAndTightsCategory() {
         return waitVisibilityOfElement("//a[@id='158000']");
+    }
+
+    public WebElement getMenBagsBackpacksCategory() {
+        return waitVisibilityOfElement("//a[@id='19800']");
     }
 
     public MenFootballPage moveToManCategory() {
@@ -34,7 +38,7 @@ public class Header extends BasePage {
         return new MenFootballPage(driver);
     }
 
-    public MenTrainersPage moveToMenTrainersCategory(){
+    public MenTrainersPage moveToMenTrainersCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenTrainersCategory());
         getMenTrainersCategory().click();
@@ -42,11 +46,19 @@ public class Header extends BasePage {
         return new MenTrainersPage(driver);
     }
 
-    public MenTrainersPage moveToMenTrousersAndTightsCategory(){
+    public MenTrousersAndTightsPage moveToMenTrousersAndTightsCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenTrousersAndTightsCategory());
         getMenTrousersAndTightsCategory().click();
 
-        return new MenTrainersPage(driver);
+        return new MenTrousersAndTightsPage(driver);
+    }
+
+    public MensBagsBackpacksPage moveToMenBagsBackpacksCategory() {
+        moveToElement(driver, getManCategory());
+        moveToElement(driver, getMenBagsBackpacksCategory());
+        getMenBagsBackpacksCategory().click();
+
+        return new MensBagsBackpacksPage(driver);
     }
 }
