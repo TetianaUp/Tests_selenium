@@ -29,6 +29,9 @@ public class Header extends BasePage {
     public WebElement getMenBagsBackpacksCategory() {
         return waitVisibilityOfElement("//a[@id='19800']");
     }
+    public WebElement getMenSportsGearCategory() {
+        return waitVisibilityOfElement("//a[@id='29005-1']");
+    }
 
     public MenFootballPage moveToManCategory() {
         moveToElement(driver, getManCategory());
@@ -60,5 +63,13 @@ public class Header extends BasePage {
         getMenBagsBackpacksCategory().click();
 
         return new MensBagsBackpacksPage(driver);
+    }
+
+    public MenSportGearPage moveToMenSportGearCategory() {
+        moveToElement(driver, getManCategory());
+        moveToElement(driver, getMenSportsGearCategory());
+        getMenSportsGearCategory().click();
+
+        return new MenSportGearPage(driver);
     }
 }
