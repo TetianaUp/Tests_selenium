@@ -72,4 +72,19 @@ public class Header extends BasePage {
 
         return new MenSportGearPage(driver);
     }
+
+    public WebElement getRunningCategory() {
+        return waitVisibilityOfElement("//a[@id='6000']");
+    }
+    public WebElement getMidDistanceRunCategory() {
+        return waitVisibilityOfElement("//a[@id='70602']");
+    }
+
+    public RunningMidDistanceRunPage moveToMidDistanceRunCategory() {
+        moveToElement(driver, getRunningCategory());
+        moveToElement(driver, getMidDistanceRunCategory());
+        getMidDistanceRunCategory().click();
+
+        return new RunningMidDistanceRunPage(driver);
+    }
 }
