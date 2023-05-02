@@ -12,7 +12,6 @@ public class MenTrousersAndTightsPage extends Header {
 
     public final String PRICE_FILTER = "//button[@aria-controls='refinement-price']";
     public final String FEATURES_FILTER = "//button[@aria-controls='refinement-features']";
-    //public final String FEATURES_FILTER = "//button[@aria-controls='refinement-features']";
     private final String QUICK_DRY_FEATURE = "//label[@for='primarytechnology-quick-dry-0']";
     public final String FIRST_PRODUCT = "//div[@class='pgptiles col-6 col-lg-4 px-1 px-lg-2'][1]";
 
@@ -20,7 +19,6 @@ public class MenTrousersAndTightsPage extends Header {
         scrollForElement(driver, waitPresenceOfElement(PRICE_FILTER));
         waitClickableElement(FEATURES_FILTER).click();
         clickOnElement(driver, waitPresenceOfElement(QUICK_DRY_FEATURE));
-        //waitPresenceOfElement(QUICK_DRY_FEATURE).click();
 
         return this;
     }

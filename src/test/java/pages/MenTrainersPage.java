@@ -13,7 +13,6 @@ public class MenTrainersPage extends Header {
 
     public final String PRICE_FILTER = "//button[@aria-controls='refinement-price']";
 
-
     public MenTrainersPage filteringByPrice(String parametrForFilterring) {
         waitClickableElement(PRICE_FILTER).click();
         waitPresenceOfElement(parametrForFilterring).click();
