@@ -15,10 +15,6 @@ public class MenFootballPage extends Header {
 
     public final static String PRODUCT_PRICE = "//span[@class='sales font-body-large ']";
 
-    public String getTitleCategory() {
-        return waitVisibilityOfElement("//h1[contains(@class, 'js-griddisplay-name page-category')]")
-                .getText();
-    }
 
     public MenFootballPage sortByPriceHighToLow() {
         Select selectByHighLowPrice = new Select(getSortDropdownMenu());

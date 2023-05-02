@@ -1,21 +1,18 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    final static int BASE_WAIT = 3;
+    final static int BASE_WAIT = 30;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -42,4 +39,10 @@ public abstract class BasePage {
     public WebElement getSortDropdownMenu() {
         return driver.findElement(By.name("sort-order"));
     }
+
+    public String getTitleCategory() {
+        return waitVisibilityOfElement("//h1[contains(@class, 'js-griddisplay-name page-category')]")
+                .getText();
+    }
+
 }

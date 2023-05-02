@@ -22,6 +22,10 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//a[@id='106000']");
     }
 
+    public WebElement getMenTrousersAndTightsCategory(){
+        return waitVisibilityOfElement("//a[@id='158000']");
+    }
+
     public MenFootballPage moveToManCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getManFootballCategory());
@@ -34,6 +38,14 @@ public class Header extends BasePage {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenTrainersCategory());
         getMenTrainersCategory().click();
+
+        return new MenTrainersPage(driver);
+    }
+
+    public MenTrainersPage moveToMenTrousersAndTightsCategory(){
+        moveToElement(driver, getManCategory());
+        moveToElement(driver, getMenTrousersAndTightsCategory());
+        getMenTrousersAndTightsCategory().click();
 
         return new MenTrainersPage(driver);
     }

@@ -15,4 +15,8 @@ public class ActionUtils {
         Actions actions = new Actions(driver);
         actions.moveToElement(element).pause(2).perform();
     }
+    public static void clickOnElement(WebDriver driver, WebElement element) {
+        Actions actions = new Actions(driver);
+        actions.click(element).pause(2).perform();
+    }
 }
