@@ -35,7 +35,7 @@ public class FeatureQuickDryMenTrousersTest extends TestInit {
         productPage
                 .clickProductDetails();
 
-        assertTrue(productPage.getTextGromProductDetails().contains("fast-drying"));
+        assertTrue(productPage.getTextFromProductDetails().contains("fast-drying"));
 
 
     }

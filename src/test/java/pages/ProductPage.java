@@ -15,10 +15,17 @@ public class ProductPage extends Header {
         return this;
     }
 
-    public String getTextGromProductDetails() {
+    public String getTextFromProductDetails() {
         String text = waitVisibilityOfElement("//div[@class='ecom-bullets ml-3 mt-0'][1]").getText();
 
         return text;
+    }
+
+    public String getColorFromProduct() {
+        String color = waitVisibilityOfElement("//div[@class='col-12 color-display-name order-0 d-none d-lg-block mt-2 px-0']")
+                .getText();
+
+        return color;
     }
 
 }
