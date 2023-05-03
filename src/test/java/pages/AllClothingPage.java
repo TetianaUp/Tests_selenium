@@ -33,8 +33,7 @@ public class AllClothingPage extends Header {
             if (element.getText().contains("Oversized"))
                 count++;
         }
+
         return count;
     }
-
-
 }

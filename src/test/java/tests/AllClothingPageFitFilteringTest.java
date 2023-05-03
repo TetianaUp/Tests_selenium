@@ -21,7 +21,7 @@ public class AllClothingPageFitFilteringTest extends TestInit {
 
         allClothingPage
                 .filteringByFit();
-        sleep(5000);
+        sleep(2000);
 
         assertTrue(allClothingPage.findProductTitleContainsOVersized() > 0);
     }

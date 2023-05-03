@@ -88,6 +88,9 @@ public class Header extends BasePage {
     public WebElement getAllClothingCategory() {
         return waitVisibilityOfElement("//a[@id='25110']");
     }
+    public WebElement getWomenSandalsCategory() {
+        return waitVisibilityOfElement("//a[@id='50421-2']");
+    }
 
     public RunningMidDistanceRunPage moveToMidDistanceRunCategory() {
         moveToElement(driver, getRunningCategory());
@@ -103,5 +106,13 @@ public class Header extends BasePage {
         getAllClothingCategory().click();
 
         return new AllClothingPage(driver);
+    }
+
+    public WomenSandalsPage moveToWomenSandalsCategory() {
+        moveToElement(driver, getWomenCategory());
+        moveToElement(driver, getWomenSandalsCategory());
+        getWomenSandalsCategory().click();
+
+        return new WomenSandalsPage(driver);
     }
 }
