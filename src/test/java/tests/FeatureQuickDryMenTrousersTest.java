@@ -11,7 +11,6 @@ import static pages.HomePage.HOME_URL;
 public class FeatureQuickDryMenTrousersTest extends TestInit {
 
     private String title = "Men’s Trousers & Tights";
-    private final String QUICK_DRY_FEATURE = "//label[@for='primarytechnology-quick-dry-0']";
 
     @Test
     public void checkFeatureQuickDryInMenTrousersCategory() {

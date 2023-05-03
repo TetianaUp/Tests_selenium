@@ -76,8 +76,17 @@ public class Header extends BasePage {
     public WebElement getRunningCategory() {
         return waitVisibilityOfElement("//a[@id='6000']");
     }
+
     public WebElement getMidDistanceRunCategory() {
         return waitVisibilityOfElement("//a[@id='70602']");
+    }
+
+    public WebElement getWomenCategory() {
+        return waitVisibilityOfElement("//a[@id='2000']");
+    }
+
+    public WebElement getAllClothingCategory() {
+        return waitVisibilityOfElement("//a[@id='25110']");
     }
 
     public RunningMidDistanceRunPage moveToMidDistanceRunCategory() {
@@ -86,5 +95,13 @@ public class Header extends BasePage {
         getMidDistanceRunCategory().click();
 
         return new RunningMidDistanceRunPage(driver);
+    }
+
+    public AllClothingPage moveToAllClothingPageCategory() {
+        moveToElement(driver, getWomenCategory());
+        moveToElement(driver, getAllClothingCategory());
+        getAllClothingCategory().click();
+
+        return new AllClothingPage(driver);
     }
 }
