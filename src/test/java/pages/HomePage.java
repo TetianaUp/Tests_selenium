@@ -15,6 +15,8 @@ public class HomePage extends Header {
     }
 
     public final static String HOME_URL = "https://www.newbalance.co.uk/";
+    public final static String BEST_SELLERS_PART = "//div[@class='category container-fluid fluid-image-max-width']";
+    public final String FIRST_CATEGORY_BS = "//a[@href='/550/']";
     public final static String NEW_ARRIVAL_PART = "//div[@class='ml-lg-11 ml-3']";
     public final static String NEXT_ARROW = "//div[@class='ml-lg-11 ml-3']//button[@class='slide-arrow next-arrow slick-arrow']";
 
@@ -50,5 +52,10 @@ public class HomePage extends Header {
                 waitPresenceOfElement(NEXT_ARROW).click();
             }
         }
+    }
+    public Category550Page get550CategoryInBestSellers() {
+        scrollForElement(driver, waitPresenceOfElement(BEST_SELLERS_PART));
+        waitClickableElement(FIRST_CATEGORY_BS).click();
+        return new Category550Page(driver);
     }
 }

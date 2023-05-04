@@ -12,7 +12,7 @@ import java.util.List;
 public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    final static int BASE_WAIT = 40;
+    final static int BASE_WAIT = 60;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

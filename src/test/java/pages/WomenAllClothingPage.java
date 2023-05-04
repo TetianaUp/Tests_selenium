@@ -8,8 +8,8 @@ import java.util.List;
 import static utils.ActionUtils.clickOnElement;
 import static utils.ActionUtils.scrollForElement;
 
-public class AllClothingPage extends Header {
-    public AllClothingPage(WebDriver driver) {
+public class WomenAllClothingPage extends Header {
+    public WomenAllClothingPage(WebDriver driver) {
         super(driver);
     }
 
@@ -17,7 +17,7 @@ public class AllClothingPage extends Header {
     private final String OVERSIZED_FILTER = "//span[contains(text(),'Oversized')]";
     private final String PRODUCT_TITLE = "//div[@class='pdp-link']";
 
-    public AllClothingPage filteringByFit() {
+    public WomenAllClothingPage filteringByFit() {
         scrollForElement(driver, waitPresenceOfElement(FIT_FILTER));
         waitClickableElement(FIT_FILTER).click();
         scrollForElement(driver, waitPresenceOfElement(OVERSIZED_FILTER));
