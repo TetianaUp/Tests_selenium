@@ -1,18 +1,18 @@
 package tests;
 
 import org.testng.annotations.Test;
-import pages.AllClothingPage;
 import pages.HomePage;
+import pages.WomenAllClothingPage;
 
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
 
-public class AllClothingPageFitFilteringTest extends TestInit {
+public class WomenAllClothingPageFitFilteringTest extends TestInit {
     @Test
     public void checkOversizedFiltering() {
         openUrl(HOME_URL);
         HomePage homePage = new HomePage(driver);
-        AllClothingPage allClothingPage = new AllClothingPage(driver);
+        WomenAllClothingPage allClothingPage = new WomenAllClothingPage(driver);
 
         homePage
                 .acceptAllCookies()

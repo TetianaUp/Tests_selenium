@@ -94,10 +94,18 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//a[@id='50421-2']");
     }
 
+
+    public WebElement getWomenMoreCategory() {
+        return waitVisibilityOfElement("//a[@id='24240']");
+    }
+
     public WebElement getWomenDressesCategory() {
         return waitVisibilityOfElement("//a[@id='251001']");
     }
 
+    public WebElement getWomenSportsBrasCategory() {
+        return waitVisibilityOfElement("//a[@id='259000']");
+    }
 
     public RunningMidDistanceRunPage moveToMidDistanceRunCategory() {
         moveToElement(driver, getRunningCategory());
@@ -107,12 +115,12 @@ public class Header extends BasePage {
         return new RunningMidDistanceRunPage(driver);
     }
 
-    public AllClothingPage moveToAllClothingPageCategory() {
+    public WomenAllClothingPage moveToAllClothingPageCategory() {
         moveToElement(driver, getWomenCategory());
         moveToElement(driver, getWomenAllClothingCategory());
         getWomenAllClothingCategory().click();
 
-        return new AllClothingPage(driver);
+        return new WomenAllClothingPage(driver);
     }
 
     public WomenSandalsPage moveToWomenSandalsCategory() {
@@ -130,4 +138,17 @@ public class Header extends BasePage {
 
         return new WomenDressesPage(driver);
     }
+
+    public WebElement getCert() {
+        return waitVisibilityOfElement("//div[@class='minicart-total']");
+    }
+
+    public WomenSportsBrasPage moveToWomenSportsBraCategory() {
+        moveToElement(driver, getWomenCategory());
+        moveToElement(driver, getWomenSportsBrasCategory());
+        getWomenSportsBrasCategory().click();
+
+        return new WomenSportsBrasPage(driver);
+    }
+
 }
