@@ -53,7 +53,6 @@ public class ProductPage extends Header {
         return this;
     }
 
-
     public boolean isSizeSMOAvailable() {
         return waitClickableElement("//button[@data-attrid='size']//span[@id='SM0']").isEnabled();
     }
