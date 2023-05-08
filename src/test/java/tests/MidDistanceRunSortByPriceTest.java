@@ -10,7 +10,6 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 import static pages.HomePage.HOME_URL;
-import static pages.MensBagsBackpacksPage.PRODUCT_PRICE_b;
 import static pages.RunningMidDistanceRunPage.MDRUN_PRODUCT_PRICE;
 
 public class MidDistanceRunSortByPriceTest extends TestInit{
@@ -24,11 +23,10 @@ public class MidDistanceRunSortByPriceTest extends TestInit{
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToMidDistanceRunCategory();
-        runningMidDistanceRunPage
-                .sortByPriceLowToHigh();
+                .selectToMidDistanceRunCategory();
 
-        sleep(2000);
+        runningMidDistanceRunPage.sortByPriceLowToHigh();
+        runningMidDistanceRunPage.waitForLoaderToDisappear();
 
         List<Double> prices = runningMidDistanceRunPage.getProductPrices(MDRUN_PRODUCT_PRICE);
         List<Double> sortedPrices = new ArrayList<>(prices);

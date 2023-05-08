@@ -1,8 +1,9 @@
-package pages;
+package pages.mens;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import pages.Header;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,6 @@ public class MenFootballPage extends Header {
     }
 
     public final static String PRODUCT_PRICE = "//span[@class='sales font-body-large ']";
-
 
     public MenFootballPage sortByPriceHighToLow() {
         Select selectByHighLowPrice = new Select(getSortDropdownMenu());
@@ -29,7 +29,7 @@ public class MenFootballPage extends Header {
         List<Double> prices = new ArrayList<>();
         List<WebElement> productPriceElements = waitPresenceOfAllElements(locator);
         for (WebElement element : productPriceElements) {
-            String priceText = element.getText().replace(".", "").replace("£", "");
+            String priceText = element.getText().replace("£", "");
             Double price = Double.parseDouble(priceText);
             prices.add(price);
         }

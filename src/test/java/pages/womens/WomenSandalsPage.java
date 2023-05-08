@@ -1,7 +1,8 @@
-package pages;
+package pages.womens;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.Header;
 
 import java.util.ArrayList;
 import java.util.List;

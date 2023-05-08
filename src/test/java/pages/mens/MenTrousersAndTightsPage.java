@@ -1,9 +1,11 @@
-package pages;
+package pages.mens;
 
 import org.openqa.selenium.WebDriver;
+import pages.Header;
+import pages.ProductPage;
 
 import static utils.ActionUtils.clickOnElement;
-import static utils.ActionUtils.scrollForElement;
+import static utils.ActionUtils.scrollToElement;
 
 public class MenTrousersAndTightsPage extends Header {
     public MenTrousersAndTightsPage(WebDriver driver) {
@@ -16,7 +18,7 @@ public class MenTrousersAndTightsPage extends Header {
     public final String FIRST_PRODUCT = "//div[@class='pgptiles col-6 col-lg-4 px-1 px-lg-2'][1]";
 
     public MenTrousersAndTightsPage filteringByFeature() {
-        scrollForElement(driver, waitPresenceOfElement(PRICE_FILTER));
+        scrollToElement(driver, waitPresenceOfElement(PRICE_FILTER));
         waitClickableElement(FEATURES_FILTER).click();
         clickOnElement(driver, waitPresenceOfElement(QUICK_DRY_FEATURE));
 

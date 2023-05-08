@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.MensBagsBackpacksPage;
+import pages.mens.MensBagsBackpacksPage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
-import static pages.MensBagsBackpacksPage.PRODUCT_PRICE_b;
+import static pages.mens.MensBagsBackpacksPage.PRODUCT_PRICE_b;
 
 public class MenBagsBackpacksActivityFilterPriceSortTest extends TestInit {
 
@@ -24,17 +24,15 @@ public class MenBagsBackpacksActivityFilterPriceSortTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToMenBagsBackpacksCategory();
+                .selectToMenBagsBackpacksCategory();
 
-        mensBagsBackpacksPage
-                .filteringByActivity();
-        sleep(3000);
+        mensBagsBackpacksPage.filteringByActivity();
+        mensBagsBackpacksPage.waitForLoaderToDisappear();
 
         assertTrue(mensBagsBackpacksPage.getNumberOfProductsInCategory() > 0);
 
-        mensBagsBackpacksPage
-                .sortByPriceLowToHigh();
-        sleep(2000);
+        mensBagsBackpacksPage.sortByPriceLowToHigh();
+        mensBagsBackpacksPage.waitForLoaderToDisappear();
 
         List<Double> prices = mensBagsBackpacksPage.getProductPrices(PRODUCT_PRICE_b);
         List<Double> sortedPrices = new ArrayList<>(prices);

@@ -2,13 +2,13 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.MenSportGearPage;
+import pages.mens.MenSportGearPage;
 
 import java.util.List;
 
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
-import static pages.MenSportGearPage.SPORT_GEAR_PRICE;
+import static pages.mens.MenSportGearPage.SPORT_GEAR_PRICE;
 
 public class MenSportsGearPriceFilteringTest extends TestInit {
 
@@ -24,14 +24,13 @@ public class MenSportsGearPriceFilteringTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToMenSportGearCategory();
+                .selectToMenSportGearCategory();
 
         assertTrue(menSportGearPage.getTitleCategory().contains(title));
 
-        menSportGearPage
-                .filteringByPrice(PRICE£100);
+        menSportGearPage.filteringByPrice(PRICE£100);
 
-        sleep(500);
+        menSportGearPage.waitForLoaderToDisappear();
         List<Double> prices = menSportGearPage.getProductPrices(SPORT_GEAR_PRICE);
         for (Double priceElement : prices) {
             assertTrue(priceElement >= 100, "Filterring doesn't work");

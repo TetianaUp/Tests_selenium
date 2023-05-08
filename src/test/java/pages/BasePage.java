@@ -1,43 +1,44 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
 import java.util.List;
+
+import static java.time.Duration.ofSeconds;
+import static org.openqa.selenium.By.name;
+import static org.openqa.selenium.By.xpath;
+import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    final static int BASE_WAIT = 60;
+    final static int BASE_WAIT = 4;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(BASE_WAIT));
+        this.wait = new WebDriverWait(driver, ofSeconds(BASE_WAIT));
     }
 
     protected WebElement waitClickableElement(String locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+        return wait.until(elementToBeClickable(xpath(locator)));
     }
 
     protected WebElement waitVisibilityOfElement(String locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+        return wait.until(visibilityOfElementLocated(xpath(locator)));
     }
 
     protected List<WebElement> waitPresenceOfAllElements(String locator) {
-        return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(locator)));
+        return wait.until(presenceOfAllElementsLocatedBy(xpath(locator)));
     }
 
     protected WebElement waitPresenceOfElement(String locator) {
-        return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
+        return wait.until(presenceOfElementLocated(xpath(locator)));
     }
 
-
     public WebElement getSortDropdownMenu() {
-        return driver.findElement(By.name("sort-order"));
+        return driver.findElement(name("sort-order"));
     }
 
     public String getTitleCategory() {
@@ -45,4 +46,12 @@ public abstract class BasePage {
                 .getText();
     }
 
+    public Double extractPriceFromElement(WebElement element) {
+        String priceText = element.getText().replace("£", "");
+        return Double.parseDouble(priceText);
+    }
+
+    public void waitForLoaderToDisappear() {
+        wait.until(invisibilityOfElementLocated(xpath("//div[@class='veil']")));
+    }
 }

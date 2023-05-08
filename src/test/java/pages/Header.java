@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.mens.*;
+import pages.womens.*;
 
 import static utils.ActionUtils.moveToElement;
 
@@ -34,7 +36,7 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//a[@id='29005-1']");
     }
 
-    public MenFootballPage moveToManCategory() {
+    public MenFootballPage selectToManCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getManFootballCategory());
         getManFootballCategory().click();
@@ -42,7 +44,7 @@ public class Header extends BasePage {
         return new MenFootballPage(driver);
     }
 
-    public MenTrainersPage moveToMenTrainersCategory() {
+    public MenTrainersPage selectToMenTrainersCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenTrainersCategory());
         getMenTrainersCategory().click();
@@ -50,7 +52,7 @@ public class Header extends BasePage {
         return new MenTrainersPage(driver);
     }
 
-    public MenTrousersAndTightsPage moveToMenTrousersAndTightsCategory() {
+    public MenTrousersAndTightsPage selectToMenTrousersAndTightsCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenTrousersAndTightsCategory());
         getMenTrousersAndTightsCategory().click();
@@ -58,7 +60,7 @@ public class Header extends BasePage {
         return new MenTrousersAndTightsPage(driver);
     }
 
-    public MensBagsBackpacksPage moveToMenBagsBackpacksCategory() {
+    public MensBagsBackpacksPage selectToMenBagsBackpacksCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenBagsBackpacksCategory());
         getMenBagsBackpacksCategory().click();
@@ -66,7 +68,7 @@ public class Header extends BasePage {
         return new MensBagsBackpacksPage(driver);
     }
 
-    public MenSportGearPage moveToMenSportGearCategory() {
+    public MenSportGearPage selectToMenSportGearCategory() {
         moveToElement(driver, getManCategory());
         moveToElement(driver, getMenSportsGearCategory());
         getMenSportsGearCategory().click();
@@ -95,7 +97,7 @@ public class Header extends BasePage {
     }
 
 
-    public WebElement getWomenMoreCategory() {
+    public WebElement getWomenMoreShoesCategory() {
         return waitVisibilityOfElement("//a[@id='24240']");
     }
 
@@ -107,7 +109,7 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//a[@id='259000']");
     }
 
-    public RunningMidDistanceRunPage moveToMidDistanceRunCategory() {
+    public RunningMidDistanceRunPage selectToMidDistanceRunCategory() {
         moveToElement(driver, getRunningCategory());
         moveToElement(driver, getMidDistanceRunCategory());
         getMidDistanceRunCategory().click();
@@ -115,7 +117,7 @@ public class Header extends BasePage {
         return new RunningMidDistanceRunPage(driver);
     }
 
-    public WomenAllClothingPage moveToAllClothingPageCategory() {
+    public WomenAllClothingPage selectToAllClothingPageCategory() {
         moveToElement(driver, getWomenCategory());
         moveToElement(driver, getWomenAllClothingCategory());
         getWomenAllClothingCategory().click();
@@ -123,7 +125,7 @@ public class Header extends BasePage {
         return new WomenAllClothingPage(driver);
     }
 
-    public WomenSandalsPage moveToWomenSandalsCategory() {
+    public WomenSandalsPage selectToWomenSandalsCategory() {
         moveToElement(driver, getWomenCategory());
         moveToElement(driver, getWomenSandalsCategory());
         getWomenSandalsCategory().click();
@@ -131,7 +133,7 @@ public class Header extends BasePage {
         return new WomenSandalsPage(driver);
     }
 
-    public WomenDressesPage moveToWomenDressesCategory() {
+    public WomenDressesPage selectWomenDressesCategory() {
         moveToElement(driver, getWomenCategory());
         moveToElement(driver, getWomenDressesCategory());
         getWomenDressesCategory().click();
@@ -143,12 +145,19 @@ public class Header extends BasePage {
         return waitVisibilityOfElement("//div[@class='minicart-total']");
     }
 
-    public WomenSportsBrasPage moveToWomenSportsBraCategory() {
+    public WomenSportsBrasPage selectToWomenSportsBraCategory() {
         moveToElement(driver, getWomenCategory());
         moveToElement(driver, getWomenSportsBrasCategory());
         getWomenSportsBrasCategory().click();
 
         return new WomenSportsBrasPage(driver);
+    }
+    public WomenShopByStyleShoesPage selectToWomenMoreCategory() {
+        moveToElement(driver, getWomenCategory());
+        moveToElement(driver, getWomenMoreShoesCategory());
+        getWomenMoreShoesCategory().click();
+
+        return new WomenShopByStyleShoesPage(driver);
     }
 
 }

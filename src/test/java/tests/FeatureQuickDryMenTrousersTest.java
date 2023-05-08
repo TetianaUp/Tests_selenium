@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.MenTrousersAndTightsPage;
+import pages.mens.MenTrousersAndTightsPage;
 import pages.ProductPage;
 
 import static org.testng.Assert.assertTrue;
@@ -22,21 +22,20 @@ public class FeatureQuickDryMenTrousersTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToMenTrousersAndTightsCategory();
+                .selectToMenTrousersAndTightsCategory();
+        homePage.waitForLoaderToDisappear();
 
         assertTrue(menTrousersAndTightsPage.getTitleCategory().contains(title));
 
         menTrousersAndTightsPage
                 .filteringByFeature();
-        sleep(5000);
-        menTrousersAndTightsPage
-                .getFirstProduct();
+        menTrousersAndTightsPage.waitForLoaderToDisappear();
+
+        menTrousersAndTightsPage.getFirstProduct();
 
         productPage
                 .clickProductDetails();
 
         assertTrue(productPage.getTextFromProductDetails().contains("fast-drying"));
-
-
     }
 }
