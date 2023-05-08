@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import pages.mens.*;
 import pages.womens.*;
 
+import static utils.ActionUtils.clickOnElement;
 import static utils.ActionUtils.moveToElement;
 
 public class Header extends BasePage {
@@ -160,4 +161,9 @@ public class Header extends BasePage {
         return new WomenShopByStyleShoesPage(driver);
     }
 
+    public CartPage clickCart(){
+        clickOnElement(driver, waitVisibilityOfElement("//div[@class='minicart-total']"));
+
+        return new CartPage(driver);
+    }
 }

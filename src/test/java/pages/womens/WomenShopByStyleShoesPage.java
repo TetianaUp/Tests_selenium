@@ -1,15 +1,11 @@
 package pages.womens;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.Header;
 
 import java.util.List;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
-import static utils.ActionUtils.scrollToElement;
 
 public class WomenShopByStyleShoesPage extends Header {
     public WomenShopByStyleShoesPage(WebDriver driver) {
