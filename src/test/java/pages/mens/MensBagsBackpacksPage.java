@@ -1,15 +1,16 @@
-package pages;
+package pages.mens;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import pages.Header;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static utils.ActionUtils.clickOnElement;
-import static utils.ActionUtils.scrollForElement;
+import static utils.ActionUtils.scrollToElement;
 
 public class MensBagsBackpacksPage extends Header {
     public MensBagsBackpacksPage(WebDriver driver) {
@@ -22,7 +23,7 @@ public class MensBagsBackpacksPage extends Header {
     public final static String PRODUCT_PRICE_b = "//span[@class='sales font-body-large ']";
 
     public MensBagsBackpacksPage filteringByActivity() {
-        scrollForElement(driver, waitPresenceOfElement(PRICE_FILTER));
+        scrollToElement(driver, waitPresenceOfElement(PRICE_FILTER));
         waitClickableElement(ACTIVITY_FILTER).click();
         clickOnElement(driver, waitPresenceOfElement(FOOTBALL_FILTER));
 

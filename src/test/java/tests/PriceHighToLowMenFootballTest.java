@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.MenFootballPage;
+import pages.mens.MenFootballPage;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,7 +11,7 @@ import java.util.List;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
-import static pages.MenFootballPage.PRODUCT_PRICE;
+import static pages.mens.MenFootballPage.PRODUCT_PRICE;
 
 public class PriceHighToLowMenFootballTest extends TestInit {
     private String title = "Football Boots";
@@ -25,14 +25,14 @@ public class PriceHighToLowMenFootballTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToManCategory();
+                .selectToManCategory();
 
         assertTrue(manFootballPage.getTitleCategory().contains(title));
 
-        manFootballPage
-                .sortByPriceHighToLow();
+        manFootballPage.sortByPriceHighToLow();
 
-        sleep(500);
+        manFootballPage.waitForLoaderToDisappear();
+
         List<Double> prices = manFootballPage.getProductPrices(PRODUCT_PRICE);
         List<Double> sortedPrices = new ArrayList<>(prices);
         sortedPrices.sort(Collections.reverseOrder());

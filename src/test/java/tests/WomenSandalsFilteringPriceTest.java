@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.WomenSandalsPage;
+import pages.womens.WomenSandalsPage;
 
 import java.util.List;
 
@@ -23,15 +23,15 @@ public class WomenSandalsFilteringPriceTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToWomenSandalsCategory();
+                .selectToWomenSandalsCategory();
 
-        womenSandalsPage
-                .filteringByPrice(PRICE_£25_£50);
-        sleep(500);
+        womenSandalsPage.filteringByPrice(PRICE_£25_£50);
+        womenSandalsPage.waitForLoaderToDisappear();
 
         List<Double> prices = womenSandalsPage.getProductPrices(SANDAL_PRICE);
         for (Double priceElement : prices) {
-            assertTrue(priceElement >= 25 && priceElement <= 50, "Filterring doesn't work");
+            assertTrue(priceElement >= 25, "Price isn't more or equals 25");
+            assertTrue(priceElement <= 50, "Price isn't less or equals 50");
         }
     }
 

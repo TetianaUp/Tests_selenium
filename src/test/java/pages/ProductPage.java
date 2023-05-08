@@ -13,6 +13,12 @@ public class ProductPage extends Header {
     public final String PRODUCT_SIZE_4_5 = "//button[@aria-label='Select UK Size 4.5']";
     public final String ADD_TO_CART_BTN = "//button[@class=' add-to-cart nb-button button-primary button-full-width']";
 
+    public final String PRODUCT_NAME = "//h1[@class='product-name hidden-sm-down']";
+
+    public String getNameCategory() {
+        return waitVisibilityOfElement(PRODUCT_NAME).getText();
+    }
+
     public ProductPage clickProductDetails() {
         waitClickableElement(PRODUCT_DETAILS).click();
 
@@ -26,11 +32,9 @@ public class ProductPage extends Header {
     }
 
     public String getColorFromProduct() {
-        String color = waitVisibilityOfElement(
+        return waitVisibilityOfElement(
                 "//div[@class='col-12 color-display-name order-0 d-none d-lg-block mt-2 px-0']")
                 .getText();
-
-        return color;
     }
 
     public ProductPage choseSizeOf550Shoes() {
@@ -51,9 +55,7 @@ public class ProductPage extends Header {
 
 
     public boolean isSizeSMOAvailable() {
-        boolean flag = waitClickableElement("//button[@data-attrid='size']//span[@id='SM0']").isEnabled();
-
-        return flag;
+        return waitClickableElement("//button[@data-attrid='size']//span[@id='SM0']").isEnabled();
     }
 
     public ProductPage getAnotherColorOfProduct() {

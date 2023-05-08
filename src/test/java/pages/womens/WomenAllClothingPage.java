@@ -1,12 +1,13 @@
-package pages;
+package pages.womens;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.Header;
 
 import java.util.List;
 
 import static utils.ActionUtils.clickOnElement;
-import static utils.ActionUtils.scrollForElement;
+import static utils.ActionUtils.scrollToElement;
 
 public class WomenAllClothingPage extends Header {
     public WomenAllClothingPage(WebDriver driver) {
@@ -18,9 +19,9 @@ public class WomenAllClothingPage extends Header {
     private final String PRODUCT_TITLE = "//div[@class='pdp-link']";
 
     public WomenAllClothingPage filteringByFit() {
-        scrollForElement(driver, waitPresenceOfElement(FIT_FILTER));
+        scrollToElement(driver, waitPresenceOfElement(FIT_FILTER));
         waitClickableElement(FIT_FILTER).click();
-        scrollForElement(driver, waitPresenceOfElement(OVERSIZED_FILTER));
+        scrollToElement(driver, waitPresenceOfElement(OVERSIZED_FILTER));
         clickOnElement(driver, waitPresenceOfElement(OVERSIZED_FILTER));
 
         return this;

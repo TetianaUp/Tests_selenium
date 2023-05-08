@@ -1,6 +1,8 @@
-package pages;
+package pages.womens;
 
 import org.openqa.selenium.WebDriver;
+import pages.Header;
+import pages.ProductPage;
 
 import static utils.ActionUtils.clickOnElement;
 

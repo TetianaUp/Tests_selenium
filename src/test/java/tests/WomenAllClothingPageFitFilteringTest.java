@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.WomenAllClothingPage;
+import pages.womens.WomenAllClothingPage;
 
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
@@ -17,11 +17,10 @@ public class WomenAllClothingPageFitFilteringTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToAllClothingPageCategory();
+                .selectToAllClothingPageCategory();
 
-        allClothingPage
-                .filteringByFit();
-        sleep(2000);
+        allClothingPage.filteringByFit();
+        allClothingPage.waitForLoaderToDisappear();
 
         assertTrue(allClothingPage.findProductTitleContainsOVersized() > 0);
     }

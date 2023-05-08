@@ -1,25 +1,26 @@
 package tests;
 
-import pages.Category550Page;
-import pages.HomePage;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.ProductPage;
 
+import static org.testng.Assert.assertEquals;
 import static pages.HomePage.HOME_URL;
 
 public class CrossingFromManePageToAnotherCategoryPageTest extends TestInit {
-    @Test
-    public void checkCrossingTo550Category() {
+    @Test(description = "назови меня нормальн ов соотвецтвии с тем что делает твой тест")
+    public void checkMyNameToRename() {
         openUrl(HOME_URL);
         HomePage homePage = new HomePage(driver);
-        Category550Page category550Page = new Category550Page(driver);
+        ProductPage productPage = new ProductPage(driver);
 
         homePage
                 .acceptAllCookies()
                 .acceptPopUp();
 
-        homePage
-                .find550CategoryInNewArrivals();
-
-        category550Page.getNameCategory();
+        var categoryName = homePage
+                .findRandomCategoryInNewArrivals();
+        //TODO: нужно починить логику, изза того что пропадает NewArrival переделать логику на BestSellers
+        assertEquals(productPage.getNameCategory(), categoryName);
     }
 }

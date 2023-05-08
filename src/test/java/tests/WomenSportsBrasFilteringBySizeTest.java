@@ -3,7 +3,7 @@ package tests;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ProductPage;
-import pages.WomenSportsBrasPage;
+import pages.womens.WomenSportsBrasPage;
 
 import static org.testng.Assert.assertTrue;
 import static pages.HomePage.HOME_URL;
@@ -24,7 +24,7 @@ public class WomenSportsBrasFilteringBySizeTest extends TestInit {
         homePage
                 .acceptAllCookies()
                 .acceptPopUp()
-                .moveToWomenSportsBraCategory();
+                .selectToWomenSportsBraCategory();
 
         womenSportsBras
                 .filteringBySize(SM0_SIZE);
@@ -33,7 +33,7 @@ public class WomenSportsBrasFilteringBySizeTest extends TestInit {
                 .getProduct();
 
         isSMOSize = productPage.isSizeSMOAvailable();
-        if (isSMOSize != true) {
+        if (!isSMOSize) {
             productPage.getAnotherColorOfProduct();
             isSMOSizeInAnotherColor = productPage.isSizeSMOAvailable();
         }
