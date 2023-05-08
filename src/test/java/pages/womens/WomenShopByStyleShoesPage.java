@@ -17,8 +17,6 @@ public class WomenShopByStyleShoesPage extends Header {
     }
 
     public int getNumberOfShoesCategoriesInBackMenu() {
-        //waitClickableElement("//button[@aria-controls='refinement-model']");
-       // scrollToElement(driver, waitPresenceOfElement("//button[@aria-controls='refinement-technology']"));
         WebElement blockElement = waitPresenceOfElement("//ul[@class='values content d-flex']");
         Actions actions = new Actions(driver);
         actions.moveToElement(blockElement).perform();
@@ -26,17 +24,5 @@ public class WomenShopByStyleShoesPage extends Header {
         List<WebElement> menuItems = waitPresenceOfAllElements("//ul[@class='values content d-flex']//button[@class='tl_filter_categories pl-0']");
         return menuItems.size();
     }
-//    public int getNumberOfShoesCategoriesInBackMenu() {
-//
-//
-//        int count = 0;
-//        List<WebElement> menuItems = new ArrayList<>();
-//        for (WebElement element : menuItems) {
-//            moveToElement(driver, waitPresenceOfElement("//button[contains(@data-href,'/women/shop-by-model/')]"));
-//            count++;
-//        }
-//
-//        return count;
-//    }
 
 }
