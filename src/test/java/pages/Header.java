@@ -166,4 +166,22 @@ public class Header extends BasePage {
 
         return new CartPage(driver);
     }
+
+    public WebElement getKidsCategory(){
+
+        return waitVisibilityOfElement("//a[@id='3000']");
+    }
+
+    public WebElement getKidsOutletClothing(){
+
+        return waitVisibilityOfElement("//a[@id='31002-3']");
+    }
+
+    public KidsOutletPage selectKidsOutletClothing(){
+        moveToElement(driver, getKidsCategory());
+        moveToElement(driver, getKidsOutletClothing());
+        getKidsOutletClothing().click();
+
+        return new KidsOutletPage(driver);
+    }
 }
