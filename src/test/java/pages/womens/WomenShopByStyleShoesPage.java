@@ -21,4 +21,11 @@ public class WomenShopByStyleShoesPage extends Header {
         return menuItems.size();
     }
 
+    public int getNumberOfShoesCategoriesInHeader() {
+
+        List<WebElement> menuItems = waitPresenceOfAllElements("//li[@data-testid='category-Women']//li[contains(@class,'Shop by model')]//li[contains(@class,'dropdown-item') and not(contains(@class,'More'))]");
+        return menuItems.size();
+    }
+
+
 }

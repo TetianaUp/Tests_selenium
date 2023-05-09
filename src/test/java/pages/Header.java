@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import pages.kids.KidsOutletPage;
 import pages.mens.*;
 import pages.womens.*;
 
@@ -153,6 +154,7 @@ public class Header extends BasePage {
 
         return new WomenSportsBrasPage(driver);
     }
+
     public WomenShopByStyleShoesPage selectToWomenMoreCategory() {
         moveToElement(driver, getWomenCategory());
         moveToElement(driver, getWomenMoreShoesCategory());
@@ -161,27 +163,44 @@ public class Header extends BasePage {
         return new WomenShopByStyleShoesPage(driver);
     }
 
-    public CartPage clickCart(){
+    public CartPage clickCart() {
         clickOnElement(driver, waitVisibilityOfElement("//div[@class='minicart-total']"));
 
         return new CartPage(driver);
     }
 
-    public WebElement getKidsCategory(){
+    public WebElement getKidsCategory() {
 
         return waitVisibilityOfElement("//a[@id='3000']");
     }
 
-    public WebElement getKidsOutletClothing(){
+    public WebElement getKidsOutletClothing() {
 
         return waitVisibilityOfElement("//a[@id='31002-3']");
     }
 
-    public KidsOutletPage selectKidsOutletClothing(){
+    public KidsOutletPage selectKidsOutletClothing() {
         moveToElement(driver, getKidsCategory());
         moveToElement(driver, getKidsOutletClothing());
         getKidsOutletClothing().click();
 
         return new KidsOutletPage(driver);
+    }
+
+    public WebElement getSearch() {
+
+        return waitVisibilityOfElement("//input[@placeholder='Search']");
+    }
+
+    public WebElement getSearchBtn() {
+
+        return waitVisibilityOfElement("//button[@name='search-button']");
+    }
+
+    public SocksPage searchProduct(String product) {
+        getSearch().sendKeys(product);
+        getSearchBtn().click();
+
+        return new SocksPage(driver);
     }
 }
