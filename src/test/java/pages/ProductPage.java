@@ -12,7 +12,6 @@ public class ProductPage extends Header {
     public final String PRODUCT_DETAILS = "//a[@href='#collapseDetails2']";
     public final String PRODUCT_SIZE_4_5 = "//button[@aria-label='Select UK Size 4.5']";
     public final String ADD_TO_CART_BTN = "//button[@class=' add-to-cart nb-button button-primary button-full-width']";
-
     public final String PRODUCT_NAME = "//h1[@class='product-name hidden-sm-down']";
 
     public String getNameCategory() {
@@ -26,9 +25,7 @@ public class ProductPage extends Header {
     }
 
     public String getTextFromProductDetails() {
-        String text = waitVisibilityOfElement("//div[@class='ecom-bullets ml-3 mt-0'][1]").getText();
-
-        return text;
+        return waitVisibilityOfElement("//div[@class='ecom-bullets ml-3 mt-0'][1]").getText();
     }
 
     public String getColorFromProduct() {
@@ -44,7 +41,7 @@ public class ProductPage extends Header {
     }
 
     public ProductPage clickAddToCart() {
-        if (waitClickableElement(ADD_TO_CART_BTN).isEnabled() == true) {
+        if (waitClickableElement(ADD_TO_CART_BTN).isEnabled()) {
             System.out.println("The cart is empty");
 
         } else

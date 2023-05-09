@@ -8,6 +8,7 @@ import static org.testng.AssertJUnit.assertTrue;
 import static pages.HomePage.HOME_URL;
 
 public class WomenShoesMoreTest extends TestInit {
+
     @Test
     public void checkNumbOfShoesCategories() {
         openUrl(HOME_URL);
@@ -22,7 +23,7 @@ public class WomenShoesMoreTest extends TestInit {
                 .waitForLoaderToDisappear();
 
         assertTrue(womenShopByStyleShoesPage.getNumberOfShoesCategoriesInBackMenu()
-                > 12);
+                > womenShopByStyleShoesPage.getNumberOfShoesCategoriesInHeader());
     }
 
 }

@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.KidsOutletPage;
+import pages.kids.KidsOutletPage;
 
 import static org.testng.AssertJUnit.assertTrue;
 import static pages.HomePage.HOME_URL;
