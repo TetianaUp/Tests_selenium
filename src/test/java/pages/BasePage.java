@@ -2,8 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static java.time.Duration.ofSeconds;
@@ -14,7 +16,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
-    final static int BASE_WAIT = 10;
+    final static int BASE_WAIT = 15;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -53,5 +55,15 @@ public abstract class BasePage {
 
     public void waitForLoaderToDisappear() {
         wait.until(invisibilityOfElementLocated(xpath("//div[@class='veil']")));
+    }
+
+    public void goToNextTab(int tabNumber) {
+        waitUntilNumberOfTabToBe(tabNumber);
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(tabNumber - 1));
+    }
+
+    public void waitUntilNumberOfTabToBe(int tabNumber) {
+        wait.until(ExpectedConditions.numberOfWindowsToBe(tabNumber));
     }
 }

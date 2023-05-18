@@ -22,7 +22,7 @@ public class WomenAllClothingPage extends Header {
         scrollToElement(driver, waitPresenceOfElement(FIT_FILTER));
         waitClickableElement(FIT_FILTER).click();
         scrollToElement(driver, waitPresenceOfElement(OVERSIZED_FILTER));
-        clickOnElement(driver, waitPresenceOfElement(OVERSIZED_FILTER));
+        waitPresenceOfElement(OVERSIZED_FILTER).click();
 
         return this;
     }

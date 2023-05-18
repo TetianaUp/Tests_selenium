@@ -14,6 +14,8 @@ import static utils.RandomUtils.randomNum;
 
 public class HomePage extends Header {
 
+    private WebElement linkSelector;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -24,6 +26,12 @@ public class HomePage extends Header {
     public final static String NEW_ARRIVAL_PART = "//div[@class='ml-lg-11 ml-3']";
     public final static String NEXT_ARROW_BEST_SELLERS_RIGHT = "//div[contains(@class, 'row category-carousel')]//button[@class='slide-arrow next-arrow slick-arrow']";
     public final static String NEXT_ARROW_BEST_SELLERS_LEFT = "//div[contains(@class, 'row category-carousel')]//button[@class='slide-arrow prev-arrow slick-arrow']";
+    public final static String INSTAGRAM = "//a[@href='https://www.instagram.com/newbalance/']";
+    public final static String FACEBOOK = "//a[@href='http://www.facebook.com/Newbalance']";
+    public final static String TWITTER = "//a[@href='https://twitter.com/NewBalance']";
+    public final static String YOUTUBE = "//a[@href='https://www.youtube.com/user/newbalance']";
+    public final static String PINTEREST = "//a[@href='https://www.pinterest.com/newbalance/']";
+    String mainHandle = driver.getWindowHandle();
 
     public HomePage acceptAllCookies() {
         waitClickableElement("//button[@id='consent_prompt_submit']").click();
@@ -37,8 +45,8 @@ public class HomePage extends Header {
         return this;
     }
 
-    public String findRandomCategoryInNewArrivals() {
-        scrollToElement(driver, waitPresenceOfElement(NEW_ARRIVAL_PART));
+    public String findRandomCategoryInBestSellers() {
+        scrollToElement(driver, waitPresenceOfElement(BEST_SELLERS_PART));
 
         return getProductCategoryName();
     }
@@ -56,14 +64,14 @@ public class HomePage extends Header {
         Set<String> uniqueCategoryNames = new HashSet<>();
 
         while (isElementPresent(NEXT_ARROW_BEST_SELLERS_RIGHT)) {
-            List<WebElement> productNameElementsNewArrival = waitPresenceOfAllElements("//span[contains(@class, 'product-name')]");
+            List<WebElement> productNameElementsNewArrival = waitPresenceOfAllElements("//p[contains(@class, 'font-weight-semibold')]");
             for (WebElement element : productNameElementsNewArrival) {
                 String categoryName = element.getText();
                 if (!categoryName.isEmpty()) {
                     uniqueCategoryNames.add(categoryName);
                 }
             }
-            waitPresenceOfElement(NEXT_ARROW_BEST_SELLERS_RIGHT).click();
+            waitPresenceOfElement(NEXT_ARROW_BEST_SELLERS_LEFT).click();
         }
 
         categoryNames.addAll(uniqueCategoryNames);
@@ -89,7 +97,7 @@ public class HomePage extends Header {
         List<WebElement> productNameElementsNewArrival;
 
         while (!clicked && isElementPresent(NEXT_ARROW_BEST_SELLERS_LEFT)) {
-            productNameElementsNewArrival = waitPresenceOfAllElements("//span[contains(@class, 'product-name')]");
+            productNameElementsNewArrival = waitPresenceOfAllElements("//p[contains(@class, 'font-weight-semibold')]");
             for (WebElement element : productNameElementsNewArrival) {
                 String nameCategoryNewArrival = element.getText();
                 if (nameCategoryNewArrival.equals(randomCategoryName)) {
@@ -108,26 +116,25 @@ public class HomePage extends Header {
     public Category550Page get550CategoryInBestSellers() {
         scrollToElement(driver, waitPresenceOfElement(BEST_SELLERS_PART));
         waitClickableElement(FIRST_CATEGORY_BS).click();
+
         return new Category550Page(driver);
     }
 
-    public HomePage scrollToItemsCounter() {
-        scrollToElement(driver, waitPresenceOfElement("//div[contains(@class, 'products-viewed')]"));
+    public HomePage scrollToFooter() {
+        scrollToElement(driver, waitPresenceOfElement("//div[@class='social-icons mt-3 d-flex']"));
 
         return this;
     }
 
-//    public RegistrationPage clickJoinToCreateAccount() {
-//        waitClickableElement("//div[contains(@class, 'navbar-header')]//span[@title='Join']").click();
-//
-//
-//        return new RegistrationPage(driver);
-//    }
+    public HomePage clickAndSwitchToFollowingPage(String locator) {
+        waitClickableElement(locator).click();
+        goToNextTab(2);
+        return this;
+    }
 
-
-//    public RegistrationPage choseLogIn() {
-//        waitClickableElement("//div[@data-copy-from='account-header']//span[@title='Log in']").click();
-//        return new RegistrationPage(driver);
-//    }
-
+    public HomePage closeAndSwitchToHomePage() {
+        driver.close();
+        goToNextTab(1);
+        return this;
+    }
 }
