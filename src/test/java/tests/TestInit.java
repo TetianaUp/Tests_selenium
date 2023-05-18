@@ -22,6 +22,7 @@ public abstract class TestInit {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
+
         System.out.println("Finish set up driver");
     }
 

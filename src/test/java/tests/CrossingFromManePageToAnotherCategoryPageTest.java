@@ -19,8 +19,9 @@ public class CrossingFromManePageToAnotherCategoryPageTest extends TestInit {
                 .acceptPopUp();
 
         var categoryName = homePage
-                .findRandomCategoryInNewArrivals();
+                .findRandomCategoryInBestSellers();
         //TODO: нужно починить логику, изза того что пропадает NewArrival переделать логику на BestSellers
         assertEquals(productPage.getNameCategory(), categoryName);
     }
 }
+

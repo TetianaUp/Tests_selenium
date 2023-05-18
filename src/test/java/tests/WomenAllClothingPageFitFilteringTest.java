@@ -19,8 +19,9 @@ public class WomenAllClothingPageFitFilteringTest extends TestInit {
                 .acceptPopUp()
                 .selectToAllClothingPageCategory();
 
-        allClothingPage.filteringByFit();
-        allClothingPage.waitForLoaderToDisappear();
+        allClothingPage
+                .filteringByFit()
+                .waitForLoaderToDisappear();
 
         assertTrue(allClothingPage.findProductTitleContainsOVersized() > 0);
     }
