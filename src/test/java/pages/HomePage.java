@@ -142,4 +142,10 @@ public class HomePage extends Header {
         waitClickableElement("//div[@data-copy-from='account-header']//span[@title='Log in']").click();
         return new LogInPage(driver);
     }
+
+    public RegistrationPage clickJoinToCreateAccount() {
+        waitClickableElement("//div[contains(@class, 'navbar-header')]//span[@title='Join']").click();
+        return new RegistrationPage(driver);
+    }
+
 }
