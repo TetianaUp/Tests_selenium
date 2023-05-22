@@ -137,4 +137,9 @@ public class HomePage extends Header {
         goToNextTab(1);
         return this;
     }
+
+    public LogInPage choseLogIn() {
+        waitClickableElement("//div[@data-copy-from='account-header']//span[@title='Log in']").click();
+        return new LogInPage(driver);
+    }
 }
